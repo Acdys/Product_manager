@@ -1,4 +1,4 @@
-package ru.netology;
+package ru.netology.domain;
 
 public class Smartphone extends Product {
     private final String manufacture;
@@ -12,5 +12,4 @@ public class Smartphone extends Product {
     public String getManufacture() {
         return manufacture;
     }
-
 }

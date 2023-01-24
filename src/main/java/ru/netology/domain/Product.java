@@ -1,4 +1,4 @@
-package ru.netology;
+package ru.netology.domain;
 
 public class Product {
     protected int id;
@@ -18,7 +18,6 @@ public class Product {
     public String getName() {
         return name;
     }
-
 
     public int getPrice() {
         return price;

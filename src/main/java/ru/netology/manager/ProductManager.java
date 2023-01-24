@@ -1,5 +1,8 @@
-package ru.netology;
+package ru.netology.manager;
 
+
+import ru.netology.repository.ProductRepository;
+import ru.netology.domain.Product;
 
 public class ProductManager {
     private final ProductRepository repository;
@@ -14,7 +17,7 @@ public class ProductManager {
     }
     public Product[] searchBy(String text) {
         Product[] result = new Product[0];
-        for (Product product: repository.findAll()) {
+        for (Product product: ProductRepository.findAll()) {
             if (matches(product, text)) {
                 Product[] tmp = new Product[result.length + 1];
                 System.arraycopy(result, 0, tmp, 0, result.length);

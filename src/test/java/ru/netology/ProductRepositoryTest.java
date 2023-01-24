@@ -3,6 +3,10 @@ package ru.netology;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ru.netology.domain.Book;
+import ru.netology.domain.Product;
+import ru.netology.domain.Smartphone;
+import ru.netology.repository.ProductRepository;
 
 public class ProductRepositoryTest {
     private final ProductRepository repository = new ProductRepository();
@@ -27,7 +31,40 @@ public class ProductRepositoryTest {
         repository.removeById(1);
 
         Product[] expected = {second, third, fourth, fifth};
-        Product[] actual = repository.findAll();
+        Product[] actual = ProductRepository.findAll();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldRemoveByIdFew() {
+        repository.removeById(1);
+        repository.removeById(4);
+
+        Product[] expected = {second, third, fifth};
+        Product[] actual = ProductRepository.findAll();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void shouldAddProductAll() {
+
+        Product[] expected = {first, second, third, fourth, fifth};
+        Product[] actual = ProductRepository.findAll();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldRemoveByIdAll() {
+        repository.removeById(1);
+        repository.removeById(2);
+        repository.removeById(3);
+        repository.removeById(4);
+        repository.removeById(5);
+
+        Product[] expected = {};
+        Product[] actual = ProductRepository.findAll();
 
         Assertions.assertArrayEquals(expected, actual);
     }

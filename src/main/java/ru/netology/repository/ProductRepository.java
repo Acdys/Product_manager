@@ -1,9 +1,11 @@
-package ru.netology;
+package ru.netology.repository;
+
+import ru.netology.domain.Product;
 
 public class ProductRepository {
-    private Product[] products = new Product[0];
+    private static Product[] products = new Product[0];
 
-    public Product[] findAll() {
+    public static Product[] findAll() {
         return products;
     }
 
@@ -25,4 +27,5 @@ public class ProductRepository {
         }
         products = tmp;
     }
+
 }
