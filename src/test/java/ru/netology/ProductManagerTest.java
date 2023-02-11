@@ -19,7 +19,6 @@ public class ProductManagerTest {
 
     @Test
     public void shouldSearchByNotFoundProducts(){
-
         manager.add(first);
         manager.add(second);
         manager.add(third);
