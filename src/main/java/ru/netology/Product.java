@@ -1,4 +1,4 @@
-package ru.netology.domain;
+package ru.netology;
 
 public class Product {
     protected int id;
@@ -9,6 +9,7 @@ public class Product {
         this.id = id;
         this.name = name;
         this.price = price;
+
     }
 
     public int getId() {
