@@ -118,4 +118,66 @@ public class RepositoryTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void shouldRemoveByIdException() {
+        Repository repo = new Repository();
+
+        Book first = new Book(1, "12 стульев", 800, "Петров");
+        Book second = new Book(2, "Манарага", 1000, "Сорокин");
+        Book third = new Book(3, "Фердидурке", 650, "Гомбрович");
+        Smartphone fourth = new Smartphone(4, "iPhone 12", 70000, "Apple");
+        Smartphone fifth = new Smartphone(5, "Galaxy", 80000, "Samsung");
+
+        repo.add(first);
+        repo.add(second);
+        repo.add(third);
+        repo.add(fourth);
+        repo.add(fifth);
+
+        Assertions.assertThrows(NotFoundException.class,
+                () -> repo.removeById(6)
+        );
+    }
+
+    @Test
+    public void shouldRemoveByIdExceptionNegative() {
+        Repository repo = new Repository();
+
+        Book first = new Book(1, "12 стульев", 800, "Петров");
+        Book second = new Book(2, "Манарага", 1000, "Сорокин");
+        Book third = new Book(3, "Фердидурке", 650, "Гомбрович");
+        Smartphone fourth = new Smartphone(4, "iPhone 12", 70000, "Apple");
+        Smartphone fifth = new Smartphone(5, "Galaxy", 80000, "Samsung");
+
+        repo.add(first);
+        repo.add(second);
+        repo.add(third);
+        repo.add(fourth);
+        repo.add(fifth);
+
+        Assertions.assertThrows(NotFoundException.class,
+                () -> repo.removeById(-1)
+        );
+    }
+    @Test
+    public void shouldRemoveByIdExceptionZero() {
+        Repository repo = new Repository();
+
+        Book first = new Book(1, "12 стульев", 800, "Петров");
+        Book second = new Book(2, "Манарага", 1000, "Сорокин");
+        Book third = new Book(3, "Фердидурке", 650, "Гомбрович");
+        Smartphone fourth = new Smartphone(4, "iPhone 12", 70000, "Apple");
+        Smartphone fifth = new Smartphone(5, "Galaxy", 80000, "Samsung");
+
+        repo.add(first);
+        repo.add(second);
+        repo.add(third);
+        repo.add(fourth);
+        repo.add(fifth);
+
+        Assertions.assertThrows(NotFoundException.class,
+                () -> repo.removeById(0)
+        );
+    }
+
 }
